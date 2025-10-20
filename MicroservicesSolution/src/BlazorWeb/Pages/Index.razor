@@ -1,0 +1,106 @@
+@page "/"
+@using BlazorFrontend.Services
+@using Microsoft.AspNetCore.Components.Authorization
+@inject ApiPedidosService PedidosService
+@inject ApiPagoService PagoService
+@inject ApiConsultaService ConsultaService
+@inject NavigationManager Navigation
+
+<AuthorizeView>
+    <Authorized>
+        <PageTitle>Microservicios - Dashboard</PageTitle>
+
+        <h1>🚀 Sistema de Microservicios</h1>
+
+        <div class="row mb-3">
+            <div class="col-12">
+                <div class="alert alert-success">
+                    ✅ Sistema funcionando CON autenticación - Bienvenido @context.User.Identity?.Name
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-header">📦 ApiPedidos</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Gestión de Pedidos</h5>
+                        <p class="card-text">Crear y gestionar pedidos de clientes</p>
+                        <button class="btn btn-light" @onclick="NavegarPedidos">Ir a Pedidos</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-header">💳 ApiPago</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Procesamiento de Pagos</h5>
+                        <p class="card-text">Procesar pagos de pedidos</p>
+                        <button class="btn btn-light" @onclick="NavegarPagos">Ir a Pagos</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card text-white bg-info mb-3">
+                    <div class="card-header">🔍 ApiConsulta</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Consultas y Reportes</h5>
+                        <p class="card-text">Consultar datos procesados</p>
+                        <button class="btn btn-light" @onclick="NavegarConsultas">Ir a Consultas</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>📊 Resumen del Sistema</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>📨 Mensajería:</strong> Kafka</p>
+                        <p><strong>💾 Base de datos:</strong> SQL Server + MongoDB</p>
+                        <p><strong>🎯 Flujo:</strong> ApiPedidos → ApiPago → Kafka → ApiConsulta</p>
+                        <p><strong>🔐 Autenticación:</strong> <span class="text-success">HABILITADA (Keycloak)</span></p>
+                        <p><strong>👤 Usuario:</strong> @context.User.FindFirst("preferred_username")?.Value</p>
+                        <p><strong>📧 Email:</strong> @context.User.FindFirst("email")?.Value</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <div class="container text-center mt-5">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-header bg-warning">
+                            <h4>🔐 Autenticación Requerida</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Para acceder al sistema de microservicios, debe iniciar sesión.</p>
+                            <button class="btn btn-primary" @onclick="RedirectToLogin">
+                                Iniciar Sesión
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private void NavegarPedidos() => Navigation.NavigateTo("/pedidos");
+    private void NavegarPagos() => Navigation.NavigateTo("/pagos");
+    private void NavegarConsultas() => Navigation.NavigateTo("/consultas");
+    
+    private void RedirectToLogin()
+    {
+        Navigation.NavigateTo($"authentication/login?returnUrl={Uri.EscapeDataString(Navigation.Uri)}");
+    }
+}

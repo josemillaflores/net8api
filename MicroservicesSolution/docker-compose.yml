@@ -1,0 +1,361 @@
+version: "3.9"  # Fixed the quotes issue
+services:
+  # PostgreSQL para Keycloak
+  postgres:
+    image: postgres:16
+    container_name: kc-postgres
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: keycloak
+    ports:
+      - "5432:5432" 
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U keycloak -d keycloak"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - sol-ec-network
+
+  # Keycloak para autenticación centralizada
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.0.2
+    container_name: keycloak
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://kc-postgres:5432/keycloak
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: keycloak
+      KC_HEALTH_ENABLED: "true"
+      KC_METRICS_ENABLED: "true"
+      KC_PROXY_HEADERS: "xforwarded"
+      KC_HOSTNAME_STRICT: "false"
+      KC_IMPORT: /opt/keycloak/data/import/realm.json
+      KC_IMPORT_FORCE: "true"
+    command:
+      - start-dev 
+      - --http-enabled=true
+      - --hostname-strict=false
+      - --health-enabled=true
+      - --import-realm
+    ports:
+      - "18080:8080"
+    volumes:
+      - kc_data:/opt/keycloak/data
+      - ./keycloak-config:/opt/keycloak/data/import
+    networks:
+      - sol-ec-network
+    healthcheck:  # ✅ AGREGAR HEALTH CHECK CRÍTICO
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health/ready"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+      start_period: 60s
+  # Kafka en modo KRaft (sin Zookeeper)
+# Kafka en modo KRaft (sin Zookeeper)
+  kafka:
+    image: apache/kafka:latest 
+    container_name: kafka
+    ports:
+      - "9092:9092"
+      - "9094:9094"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT,PLAINTEXT_DOCKER:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092,PLAINTEXT_DOCKER://kafka:9094
+      KAFKA_LISTENERS: PLAINTEXT://kafka:29092,CONTROLLER://kafka:29093,PLAINTEXT_HOST://0.0.0.0:9092,PLAINTEXT_DOCKER://0.0.0.0:9094
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_NODE_ID: 1
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:29093
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_LOG_DIRS: /tmp/kraft-combined-logs
+      CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qk
+    volumes:
+      - kafka_data:/tmp/kafka-logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "kafka-topics.sh", "--bootstrap-server", "kafka:9094", "--list"]
+      interval: 10s 
+      timeout: 10s 
+      retries: 10
+      start_period: 60s 
+    networks:
+      - sol-ec-network
+
+# Kafka UI para administración de Kafka
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka-ui
+    ports:
+      - "18085:8080"
+    environment:
+      - KAFKA_CLUSTERS_0_NAME=local
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9094
+    depends_on:
+      kafka:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - sol-ec-network
+
+  # SQL Server para las APIs que lo necesiten
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sql-server
+    environment:
+      SA_PASSWORD: "abc1234%"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -U sa -P abc1234% -Q 'SELECT 1' || exit 0"]
+      interval: 10s
+      retries: 10
+      timeout: 5s
+    networks:
+      - sol-ec-network
+
+  # MongoDB para ApiPago y ApiConsulta
+  mongo:
+    image: mongo:latest 
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    networks:
+      - sol-ec-network
+    volumes:
+      - mongo_data:/data/db
+      - ./scripts:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      retries: 3
+      start_period: 20s
+      timeout: 10s
+
+  # Elasticsearch para logs
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.5.3
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    networks:
+      - sol-ec-network
+
+  # Kibana para visualizar los logs
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.5.3
+    container_name: kibana
+    ports:
+      - "15601:5601"
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+    networks:
+      - sol-ec-network
+    depends_on:
+      - elasticsearch
+
+  # Jaeger para trazabilidad distribuida
+  jaeger:
+    image: jaegertracing/all-in-one:1.57
+    container_name: jaeger
+    environment:
+      - COLLECTOR_ZIPKIN_HTTP_PORT=9411
+      - COLLECTOR_OTLP_ENABLED=true
+    ports:
+      - "16831:6831/udp"    # Agente UDP
+      - "16832:6832/udp"    # Agente UDP alternativo
+      - "16686:16686"      # UI
+      - "14268:14268"      # Collector HTTP
+      - "14250:14250"      # Collector gRPC
+      - "4317:4317"        # OTLP gRPC
+      - "4318:4318"        # OTLP HTTP
+      - "5775:5775"        # Zipkin
+      - "9411:9411"        # Zipkin HTTP  
+    networks:
+      - sol-ec-network
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "http://localhost:16686/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5 
+      
+  # ApiPedidos
+  api-pedidos:
+    build: ./src/ApiPedidos
+    container_name: api-pedidos
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - Keycloak__Authority=http://keycloak:8080/realms/MicroservicesRealm
+      - Keycloak__Audience=shopping-api
+      - OTEL_SERVICE_NAME=api-pedidos
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://jaeger:4317
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=PedidosDB;User Id=sa;Password=abc1234%;TrustServerCertificate=true;
+      - ApiPago__BaseUrl=http://api-pago:8080
+      - Kafka__BootstrapServers=kafka:9094
+    depends_on:
+      kafka:
+        condition: service_healthy
+      keycloak:
+        condition: service_healthy
+      mongo:
+        condition: service_healthy
+      jaeger:
+        condition: service_healthy
+      sqlserver:
+        condition: service_healthy
+      api-pago:
+        condition: service_healthy   
+    ports:
+      - "15001:8080"
+    networks:
+      - sol-ec-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:  # ✅ Agregar health check
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s  
+
+  # ApiPago
+  api-pago:
+    build: ./src/ApiPago
+    container_name: api-pago
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - OTEL_SERVICE_NAME=api-pago
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://jaeger:4317
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=PagosDB;User Id=sa;Password=abc1234%;TrustServerCertificate=true;
+      - Kafka__BootstrapServers=kafka:9094
+    depends_on:
+      kafka:
+        condition: service_healthy
+      keycloak:
+        condition: service_healthy
+      sqlserver:  # CAMBIADO: Depende de SQL Server, no de MongoDB
+        condition: service_healthy
+      jaeger:
+        condition: service_healthy
+    ports:
+      - "15002:8080"
+    networks:
+      - sol-ec-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:  # ✅ Agregar health check
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+  # ApiConsulta
+  api-consulta:
+    build: ./src/ApiConsulta
+    container_name: api-consulta
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development  
+      - ASPNETCORE_URLS=http://+:8080
+      - KeycloakUrl=http://keycloak:8080
+      - Keycloak__Authority=http://keycloak:8080/realms/MicroservicesRealm
+      - Keycloak__Audience=shopping-api
+      - ConnectionStrings__MongoDB=mongodb://root:root@mongo:27017
+      - Kafka__BootstrapServers=kafka:9094
+    depends_on:
+      kafka:
+        condition: service_healthy
+      keycloak:
+        condition: service_healthy
+      mongo:
+        condition: service_healthy
+      jaeger:
+        condition: service_healthy
+    ports:
+      - "15003:8080"
+    networks:
+      - sol-ec-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:  # ✅ Agregar health check
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  blazor-frontend:
+   build: 
+    context: ./src/BlazorWeb
+    dockerfile: Dockerfile
+   container_name: blazor-frontend
+   environment:
+    - ASPNETCORE_ENVIRONMENT=Development
+    # Las siguientes variables deben manejarse desde el cliente Blazor Wasm
+    - ApiPedidos__BaseUrl=http://api-pedidos:8080
+    - ApiConsulta__BaseUrl=http://api-consulta:8080
+    - ApiPago__BaseUrl=http://api-pago:8080
+    - Keycloak__Authority=http://keycloak:8080/realms/MicroservicesRealm
+    - Keycloak__MetadataAddress=http://keycloak:8080/realms/MicroservicesRealm/.well-known/openid-configuration
+    - Keycloak__ClientId=blazor-frontend
+    - Keycloak__ResponseType=code
+    - Keycloak__DefaultScopes=openid profile email roles
+    - Keycloak__RedirectUri=http://localhost:15004/authentication/login-callback
+    - Keycloak__PostLogoutRedirectUri=http://localhost:15004/authentication/logout-callback
+   depends_on:
+    api-pedidos:
+      condition: service_healthy
+    api-consulta:
+      condition: service_healthy
+    api-pago:
+      condition: service_healthy
+    keycloak:
+      condition: service_healthy
+   ports:
+    - "15004:80"  # Cambiado de 8080 a 80 (puerto interno de nginx)
+   networks:
+    - sol-ec-network
+   healthcheck:
+    test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/"]
+    interval: 30s
+    timeout: 10s
+    retries: 3
+    start_period: 40s
+
+networks:
+  sol-ec-network:
+    name: sol-ec-network  # Fuerza el nombre específico
+
+volumes:
+  pg_data:
+  kc_data:
+  elasticsearch_data:
+  mongo_data:
+  kafka_data:
+  sql_data:  # Added missing sql_data volume

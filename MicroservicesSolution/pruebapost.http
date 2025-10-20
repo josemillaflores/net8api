@@ -1,0 +1,77 @@
+### 1. Obtener token de Keycloak
+# @name getToken
+POST http://localhost:18080/realms/MicroservicesRealm/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+username=admin&password=adminpassword&grant_type=password&client_id=shopping-client&client_secret=shopping-client-secret
+
+### 2. Guardar token en variable
+ 
+
+### 3. Probar endpoint de salud (público)
+GET http://localhost:15001/health
+
+### 4. Procesar pedido (protegido - CON token)
+###POST http://localhost:15001/procesa
+###Authorization: Bearer {{authToken}}
+###Content-Type: application/json
+
+###{
+###  "IdCliente": 1,
+###  "MontoPago": 150.50,
+###  "FormaPago": 1
+###}
+
+### 5. Listar pedidos (protegido - CON token)
+###GET http://localhost:15001/pedidos
+###Authorization: Bearer {{authToken}}
+
+### 6. Probar SIN token (debería fallar)
+POST http://localhost:15001/procesa
+Content-Type: application/json
+
+{
+  "IdCliente": 1,
+  "MontoPago": 400.00,
+  "FormaPago": 3
+}
+
+
+### Probar SIN autenticación
+POST http://localhost:15001/procesa
+Content-Type: application/json
+
+{
+  "IdCliente": 1,
+  "MontoPago": 350.50,
+  "FormaPago": 1 
+}
+
+ 
+
+### Probar listar pedidos
+GET http://localhost:15001/pedidos
+
+### Probar crear pedido directo
+POST http://localhost:15001/pedidos
+Content-Type: application/json
+
+{
+  "IdCliente": 1,
+  "MontoPedido": 900.0
+}
+
+
+### Probar procesar un pago
+POST http://localhost:15002/pago
+Content-Type: application/json
+
+{
+  "idCliente": 1,
+  "formaPago": 3,
+  "monto": 500,
+  
+}
+
+### Probar listar pagos
+GET http://localhost:15002/pago

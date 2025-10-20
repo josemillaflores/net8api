@@ -1,0 +1,440 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\net8-web\\MicroservicesSolution\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E6935F74-B339-4516-BCF8-A56F90CBF5A1}|src\\ApiPago\\ApiPago.csproj|d:\\net8-web\\microservicessolution\\src\\apipago\\presentation\\extensions\\webapplicationbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E6935F74-B339-4516-BCF8-A56F90CBF5A1}|src\\ApiPago\\ApiPago.csproj|solutionrelative:src\\apipago\\presentation\\extensions\\webapplicationbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69A74F38-5CF1-48AC-93F8-92EF38D0E75F}|src\\ApiConsulta\\ApiConsulta.csproj|d:\\net8-web\\microservicessolution\\src\\apiconsulta\\presentation\\extensions\\webapplicationbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69A74F38-5CF1-48AC-93F8-92EF38D0E75F}|src\\ApiConsulta\\ApiConsulta.csproj|solutionrelative:src\\apiconsulta\\presentation\\extensions\\webapplicationbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB1C7A72-0BA7-455B-B835-4929F05DF585}|src\\ApiPedidos\\ApiPedidos.csproj|d:\\net8-web\\microservicessolution\\src\\apipedidos\\presentation\\extensions\\webapplicationbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB1C7A72-0BA7-455B-B835-4929F05DF585}|src\\ApiPedidos\\ApiPedidos.csproj|solutionrelative:src\\apipedidos\\presentation\\extensions\\webapplicationbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E6935F74-B339-4516-BCF8-A56F90CBF5A1}|src\\ApiPago\\ApiPago.csproj|d:\\net8-web\\microservicessolution\\src\\apipago\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E6935F74-B339-4516-BCF8-A56F90CBF5A1}|src\\ApiPago\\ApiPago.csproj|solutionrelative:src\\apipago\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|d:\\net8-web\\microservicessolution\\blazorweb\\blazorweb.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|solutionrelative:blazorweb\\blazorweb.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|d:\\net8-web\\microservicessolution\\blazorweb\\wwwroot\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|solutionrelative:blazorweb\\wwwroot\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|d:\\net8-web\\microservicessolution\\blazorweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|solutionrelative:blazorweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|d:\\net8-web\\microservicessolution\\blazorweb\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|solutionrelative:blazorweb\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|d:\\net8-web\\microservicessolution\\blazorweb\\models\\pagomodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|solutionrelative:blazorweb\\models\\pagomodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|d:\\net8-web\\microservicessolution\\blazorweb\\shared\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|solutionrelative:blazorweb\\shared\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|d:\\net8-web\\microservicessolution\\blazorweb\\services\\apipagoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|solutionrelative:blazorweb\\services\\apipagoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|d:\\net8-web\\microservicessolution\\blazorweb\\pages\\pedidos.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|solutionrelative:blazorweb\\pages\\pedidos.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|d:\\net8-web\\microservicessolution\\blazorweb\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|solutionrelative:blazorweb\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|d:\\net8-web\\microservicessolution\\blazorweb\\pages\\pagos.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|solutionrelative:blazorweb\\pages\\pagos.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|d:\\net8-web\\microservicessolution\\blazorweb\\pages\\consultas.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE51ED79-9984-47BE-90A1-DF3D4B32A7A6}|BlazorWeb\\BlazorWeb.csproj|solutionrelative:blazorweb\\pages\\consultas.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69A74F38-5CF1-48AC-93F8-92EF38D0E75F}|src\\ApiConsulta\\ApiConsulta.csproj|d:\\net8-web\\microservicessolution\\src\\apiconsulta\\application\\dtos\\pedidoprocesadoeventdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69A74F38-5CF1-48AC-93F8-92EF38D0E75F}|src\\ApiConsulta\\ApiConsulta.csproj|solutionrelative:src\\apiconsulta\\application\\dtos\\pedidoprocesadoeventdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E6935F74-B339-4516-BCF8-A56F90CBF5A1}|src\\ApiPago\\ApiPago.csproj|d:\\net8-web\\microservicessolution\\src\\apipago\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E6935F74-B339-4516-BCF8-A56F90CBF5A1}|src\\ApiPago\\ApiPago.csproj|solutionrelative:src\\apipago\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69A74F38-5CF1-48AC-93F8-92EF38D0E75F}|src\\ApiConsulta\\ApiConsulta.csproj|d:\\net8-web\\microservicessolution\\src\\apiconsulta\\domain\\consulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69A74F38-5CF1-48AC-93F8-92EF38D0E75F}|src\\ApiConsulta\\ApiConsulta.csproj|solutionrelative:src\\apiconsulta\\domain\\consulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB1C7A72-0BA7-455B-B835-4929F05DF585}|src\\ApiPedidos\\ApiPedidos.csproj|d:\\net8-web\\microservicessolution\\src\\apipedidos\\application\\usecases\\procesapedidousecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB1C7A72-0BA7-455B-B835-4929F05DF585}|src\\ApiPedidos\\ApiPedidos.csproj|solutionrelative:src\\apipedidos\\application\\usecases\\procesapedidousecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB1C7A72-0BA7-455B-B835-4929F05DF585}|src\\ApiPedidos\\ApiPedidos.csproj|d:\\net8-web\\microservicessolution\\src\\apipedidos\\application\\dtos\\procesarequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB1C7A72-0BA7-455B-B835-4929F05DF585}|src\\ApiPedidos\\ApiPedidos.csproj|solutionrelative:src\\apipedidos\\application\\dtos\\procesarequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Application\\Handlers\\ProcessEventUseCase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\ApiConsulta\\Application\\Handlers\\ProcessEventUseCase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Infrastructure\\ConsultaRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\ApiConsulta\\Infrastructure\\ConsultaRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Application\\Handlers\\PedidoProcesadoEvent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\ApiConsulta\\Application\\Handlers\\PedidoProcesadoEvent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Infrastructure\\IProcessEventUseCase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\ApiConsulta\\Infrastructure\\IProcessEventUseCase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Infrastructure\\IConsultaRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\ApiConsulta\\Infrastructure\\IConsultaRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\net8-web\\MicroservicesSolution\\src\\ApiPedidos\\Infrastructure\\IPedidoRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\ApiPedidos\\Infrastructure\\IPedidoRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WebApplicationBuilderExtensions.cs",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\src\\ApiPedidos\\Presentation\\Extensions\\WebApplicationBuilderExtensions.cs",
+              "RelativeDocumentMoniker": "src\\ApiPedidos\\Presentation\\Extensions\\WebApplicationBuilderExtensions.cs",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\src\\ApiPedidos\\Presentation\\Extensions\\WebApplicationBuilderExtensions.cs",
+              "RelativeToolTip": "src\\ApiPedidos\\Presentation\\Extensions\\WebApplicationBuilderExtensions.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwB4AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T21:54:57.293Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WebApplicationBuilderExtensions.cs",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Presentation\\Extensions\\WebApplicationBuilderExtensions.cs",
+              "RelativeDocumentMoniker": "src\\ApiConsulta\\Presentation\\Extensions\\WebApplicationBuilderExtensions.cs",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Presentation\\Extensions\\WebApplicationBuilderExtensions.cs",
+              "RelativeToolTip": "src\\ApiConsulta\\Presentation\\Extensions\\WebApplicationBuilderExtensions.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAuwB8AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T21:52:09.192Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WebApplicationBuilderExtensions.cs",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\src\\ApiPago\\Presentation\\Extensions\\WebApplicationBuilderExtensions.cs",
+              "RelativeDocumentMoniker": "src\\ApiPago\\Presentation\\Extensions\\WebApplicationBuilderExtensions.cs",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\src\\ApiPago\\Presentation\\Extensions\\WebApplicationBuilderExtensions.cs",
+              "RelativeToolTip": "src\\ApiPago\\Presentation\\Extensions\\WebApplicationBuilderExtensions.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwCQAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T21:47:59.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\src\\ApiPago\\Program.cs",
+              "RelativeDocumentMoniker": "src\\ApiPago\\Program.cs",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\src\\ApiPago\\Program.cs",
+              "RelativeToolTip": "src\\ApiPago\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T21:47:32.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BlazorWeb",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\BlazorWeb.csproj",
+              "RelativeDocumentMoniker": "BlazorWeb\\BlazorWeb.csproj",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\BlazorWeb.csproj",
+              "RelativeToolTip": "BlazorWeb\\BlazorWeb.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-18T21:23:44.834Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\Dockerfile",
+              "RelativeDocumentMoniker": "BlazorWeb\\Dockerfile",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\Dockerfile",
+              "RelativeToolTip": "BlazorWeb\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-18T21:23:28.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\wwwroot\\appsettings.json",
+              "RelativeDocumentMoniker": "BlazorWeb\\wwwroot\\appsettings.json",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\wwwroot\\appsettings.json",
+              "RelativeToolTip": "BlazorWeb\\wwwroot\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-18T21:17:27.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\Shared\\NavMenu.razor",
+              "RelativeDocumentMoniker": "BlazorWeb\\Shared\\NavMenu.razor",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\Shared\\NavMenu.razor",
+              "RelativeToolTip": "BlazorWeb\\Shared\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-18T20:59:23.819Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ApiPagoService.cs",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\Services\\ApiPagoService.cs",
+              "RelativeDocumentMoniker": "BlazorWeb\\Services\\ApiPagoService.cs",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\Services\\ApiPagoService.cs",
+              "RelativeToolTip": "BlazorWeb\\Services\\ApiPagoService.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAewC8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T20:59:10.722Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.razor",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\Pages\\Index.razor",
+              "RelativeDocumentMoniker": "BlazorWeb\\Pages\\Index.razor",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\Pages\\Index.razor",
+              "RelativeToolTip": "BlazorWeb\\Pages\\Index.razor",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAAIAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-18T20:57:27.162Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\Program.cs",
+              "RelativeDocumentMoniker": "BlazorWeb\\Program.cs",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\Program.cs",
+              "RelativeToolTip": "BlazorWeb\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T20:50:15.639Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PagoModels.cs",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\Models\\PagoModels.cs",
+              "RelativeDocumentMoniker": "BlazorWeb\\Models\\PagoModels.cs",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\Models\\PagoModels.cs",
+              "RelativeToolTip": "BlazorWeb\\Models\\PagoModels.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAywB8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T21:00:08.862Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Pedidos.razor",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\Pages\\Pedidos.razor",
+              "RelativeDocumentMoniker": "BlazorWeb\\Pages\\Pedidos.razor",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\Pages\\Pedidos.razor",
+              "RelativeToolTip": "BlazorWeb\\Pages\\Pedidos.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-18T20:56:51.073Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Pagos.razor",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\Pages\\Pagos.razor",
+              "RelativeDocumentMoniker": "BlazorWeb\\Pages\\Pagos.razor",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\Pages\\Pagos.razor",
+              "RelativeToolTip": "BlazorWeb\\Pages\\Pagos.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-18T20:56:44.487Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Consultas.razor",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\Pages\\Consultas.razor",
+              "RelativeDocumentMoniker": "BlazorWeb\\Pages\\Consultas.razor",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\BlazorWeb\\Pages\\Consultas.razor",
+              "RelativeToolTip": "BlazorWeb\\Pages\\Consultas.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-18T20:55:15.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\src\\ApiPago\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\ApiPago\\appsettings.json",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\src\\ApiPago\\appsettings.json",
+              "RelativeToolTip": "src\\ApiPago\\appsettings.json",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-10T19:25:26.204Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PedidoProcesadoEventDto.cs",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Application\\DTOs\\PedidoProcesadoEventDto.cs",
+              "RelativeDocumentMoniker": "src\\ApiConsulta\\Application\\DTOs\\PedidoProcesadoEventDto.cs",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Application\\DTOs\\PedidoProcesadoEventDto.cs",
+              "RelativeToolTip": "src\\ApiConsulta\\Application\\DTOs\\PedidoProcesadoEventDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T19:40:38.847Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ProcessEventUseCase.cs",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Application\\Handlers\\ProcessEventUseCase.cs",
+              "RelativeDocumentMoniker": "src\\ApiConsulta\\Application\\Handlers\\ProcessEventUseCase.cs",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Application\\Handlers\\ProcessEventUseCase.cs",
+              "RelativeToolTip": "src\\ApiConsulta\\Application\\Handlers\\ProcessEventUseCase.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T19:35:27.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ConsultaRepository.cs",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Infrastructure\\ConsultaRepository.cs",
+              "RelativeDocumentMoniker": "src\\ApiConsulta\\Infrastructure\\ConsultaRepository.cs",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Infrastructure\\ConsultaRepository.cs",
+              "RelativeToolTip": "src\\ApiConsulta\\Infrastructure\\ConsultaRepository.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T19:35:01.352Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "PedidoProcesadoEvent.cs",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Application\\Handlers\\PedidoProcesadoEvent.cs",
+              "RelativeDocumentMoniker": "src\\ApiConsulta\\Application\\Handlers\\PedidoProcesadoEvent.cs",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Application\\Handlers\\PedidoProcesadoEvent.cs",
+              "RelativeToolTip": "src\\ApiConsulta\\Application\\Handlers\\PedidoProcesadoEvent.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T19:36:13.958Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Consulta.cs",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Domain\\Consulta.cs",
+              "RelativeDocumentMoniker": "src\\ApiConsulta\\Domain\\Consulta.cs",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Domain\\Consulta.cs",
+              "RelativeToolTip": "src\\ApiConsulta\\Domain\\Consulta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T19:36:38.101Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "IProcessEventUseCase.cs",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Infrastructure\\IProcessEventUseCase.cs",
+              "RelativeDocumentMoniker": "src\\ApiConsulta\\Infrastructure\\IProcessEventUseCase.cs",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Infrastructure\\IProcessEventUseCase.cs",
+              "RelativeToolTip": "src\\ApiConsulta\\Infrastructure\\IProcessEventUseCase.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T19:34:41.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "IConsultaRepository.cs",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Infrastructure\\IConsultaRepository.cs",
+              "RelativeDocumentMoniker": "src\\ApiConsulta\\Infrastructure\\IConsultaRepository.cs",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\src\\ApiConsulta\\Infrastructure\\IConsultaRepository.cs",
+              "RelativeToolTip": "src\\ApiConsulta\\Infrastructure\\IConsultaRepository.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T19:34:18.978Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "IPedidoRepository.cs",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\src\\ApiPedidos\\Infrastructure\\IPedidoRepository.cs",
+              "RelativeDocumentMoniker": "src\\ApiPedidos\\Infrastructure\\IPedidoRepository.cs",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\src\\ApiPedidos\\Infrastructure\\IPedidoRepository.cs",
+              "RelativeToolTip": "src\\ApiPedidos\\Infrastructure\\IPedidoRepository.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T19:24:57.503Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ProcesaPedidoUseCase.cs",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\src\\ApiPedidos\\Application\\UseCases\\ProcesaPedidoUseCase.cs",
+              "RelativeDocumentMoniker": "src\\ApiPedidos\\Application\\UseCases\\ProcesaPedidoUseCase.cs",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\src\\ApiPedidos\\Application\\UseCases\\ProcesaPedidoUseCase.cs",
+              "RelativeToolTip": "src\\ApiPedidos\\Application\\UseCases\\ProcesaPedidoUseCase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T19:24:45.88Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ProcesaRequest.cs",
+              "DocumentMoniker": "D:\\net8-web\\MicroservicesSolution\\src\\ApiPedidos\\Application\\DTOs\\ProcesaRequest.cs",
+              "RelativeDocumentMoniker": "src\\ApiPedidos\\Application\\DTOs\\ProcesaRequest.cs",
+              "ToolTip": "D:\\net8-web\\MicroservicesSolution\\src\\ApiPedidos\\Application\\DTOs\\ProcesaRequest.cs",
+              "RelativeToolTip": "src\\ApiPedidos\\Application\\DTOs\\ProcesaRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T19:24:43.28Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

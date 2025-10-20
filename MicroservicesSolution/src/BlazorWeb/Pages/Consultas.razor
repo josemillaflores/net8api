@@ -1,0 +1,83 @@
+@page "/consultas"
+@using BlazorFrontend.Models
+@using BlazorFrontend.Services
+@inject ApiConsultaService ConsultaService
+
+<PageTitle>Consultas</PageTitle>
+
+<h1>🔍 Consultas y Reportes</h1>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5>Consultas Procesadas (MongoDB)</h5>
+                <button class="btn btn-outline-info btn-sm" @onclick="CargarConsultas">
+                    🔄 Actualizar
+                </button>
+            </div>
+            <div class="card-body">
+                @if (consultas.Any())
+                {
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID Consulta</th>
+                                    <th>ID Pedido</th>
+                                    <th>Cliente</th>
+                                    <th>ID Pago</th>
+                                    <th>Monto</th>
+                                    <th>Forma Pago</th>
+                                    <th>Fecha Consulta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var consulta in consultas)
+                                {
+                                    <tr>
+                                        <td>@consulta.Id.Substring(0, 8)...</td>
+                                        <td>@consulta.IdPedido</td>
+                                        <td>@consulta.NombreCliente</td>
+                                        <td>@consulta.IdPago</td>
+                                        <td>@consulta.MontoPago.ToString("C")</td>
+                                        <td>@consulta.FormaPagoDescripcion</td>
+                                        <td>@consulta.FechaConsulta.ToString("g")</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-muted">Total: @consultas.Count consultas encontradas</p>
+                }
+                else
+                {
+                    <div class="alert alert-info">
+                        📝 No hay consultas registradas. Crea algunos pedidos para ver los datos aquí.
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<Consulta> consultas = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CargarConsultas();
+    }
+
+    private async Task CargarConsultas()
+    {
+        try
+        {
+            consultas = await ConsultaService.ObtenerConsultasAsync();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error cargando consultas: {ex.Message}");
+        }
+    }
+}

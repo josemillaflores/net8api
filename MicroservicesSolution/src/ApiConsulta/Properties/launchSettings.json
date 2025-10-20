@@ -1,0 +1,45 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5103",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "KeycloakUrl": "http://localhost:18080",
+        "KafkaBootstrapServers": "localhost:9094",
+        "DOTNET_RUNNING_IN_CONTAINER": "false",
+        "ConnectionStrings__MongoDB": "mongodb://root:root@localhost:27017"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "https://localhost:7103;http://localhost:5103",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "KeycloakUrl": "http://localhost:18080",
+        "KafkaBootstrapServers": "localhost:9094",
+        "DOTNET_RUNNING_IN_CONTAINER": "false",
+        "ConnectionStrings__MongoDB": "mongodb://root:root@localhost:27017"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": false,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "environmentVariables": {
+        "ASPNETCORE_URLS": "http://+:8080",
+        "KeycloakUrl": "http://keycloak:8080",
+        "KafkaBootstrapServers": "kafka:9094",
+        "DOTNET_RUNNING_IN_CONTAINER": "true",
+        "ConnectionStrings__MongoDB": "mongodb://root:root@mongo:27017"
+      },
+      "publishAllPorts": true,
+      "useSSL": false
+    }
+  }
+}
