@@ -6,6 +6,7 @@ using OpenTelemetry.Resources;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Serilog;
 
 namespace ApiPedidos.Presentation;
 
@@ -21,11 +22,12 @@ public static class PresentationServiceCollectionExtensions
 
         var environment = configuration["ASPNETCORE_ENVIRONMENT"] ?? "Development";
         
-        Console.WriteLine($"🔐 Configuring Keycloak from KeycloakSettings section:");
-        Console.WriteLine($"🔐   Authority: {keycloakAuthority}");
-        Console.WriteLine($"🔐   Audience: {keycloakAudience}");
-        Console.WriteLine($"🔐   Metadata: {metadataAddress}");
-        Console.WriteLine($"🔐   Environment: {environment}");
+        // ✅ USAR SERILOG EN LUGAR DE CONSOLE.WRITELINE
+        Log.Information("🔐 Configurando Keycloak desde sección KeycloakSettings:");
+        Log.Information("🔐   Authority: {Authority}", keycloakAuthority);
+        Log.Information("🔐   Audience: {Audience}", keycloakAudience);
+        Log.Information("🔐   Metadata: {Metadata}", metadataAddress);
+        Log.Information("🔐   Environment: {Environment}", environment);
 
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
@@ -60,17 +62,16 @@ public static class PresentationServiceCollectionExtensions
                 {
                     OnAuthenticationFailed = context =>
                     {
-                        Console.WriteLine($"🔐 AUTH FAILED: {context.Exception.Message}");
-                        Console.WriteLine($"🔐 Exception Type: {context.Exception.GetType().Name}");
+                        Log.Error(context.Exception, "🔐 AUTH FAILED: {Message}", context.Exception.Message);
                         
                         if (context.Exception is HttpRequestException httpEx)
                         {
-                            Console.WriteLine($"🔐 Network error: {httpEx.Message}");
-                            Console.WriteLine($"🔐 Trying to reach: {keycloakAuthority}");
+                            Log.Warning("🔐 Network error: {Message}. Trying to reach: {Authority}", 
+                                httpEx.Message, keycloakAuthority);
                             
                             if (environment == "Development")
                             {
-                                Console.WriteLine("🔐 Development mode: Bypassing network error");
+                                Log.Information("🔐 Development mode: Bypassing network error");
                                 context.NoResult();
                                 return Task.CompletedTask;
                             }
@@ -81,14 +82,14 @@ public static class PresentationServiceCollectionExtensions
                     
                     OnChallenge = context =>
                     {
-                        Console.WriteLine($"🔐 Authentication Challenge: {context.Error}");
-                        Console.WriteLine($"🔐 Challenge Description: {context.ErrorDescription}");
+                        Log.Warning("🔐 Authentication Challenge: {Error}. Description: {Description}", 
+                            context.Error, context.ErrorDescription);
                         return Task.CompletedTask;
                     },
                     
                     OnTokenValidated = context =>
                     {
-                        Console.WriteLine($"✅ Token validated for user: {context.Principal?.Identity?.Name}");
+                        Log.Information("✅ Token validated for user: {User}", context.Principal?.Identity?.Name);
                         
                         // ✅ DEBUG COMPLETO SEGÚN TUS LOGS
                         if (environment == "Development")
@@ -96,7 +97,7 @@ public static class PresentationServiceCollectionExtensions
                             var identity = context.Principal?.Identity as ClaimsIdentity;
                             if (identity != null)
                             {
-                                Console.WriteLine("=== 🎯 CLAIMS ANALYSIS ===");
+                                Log.Debug("=== 🎯 CLAIMS ANALYSIS ===");
                                 
                                 // Mostrar claims importantes
                                 var importantClaims = new[]
@@ -115,15 +116,17 @@ public static class PresentationServiceCollectionExtensions
                                     var claims = identity.FindAll(claimType).ToList();
                                     if (claims.Any())
                                     {
-                                        Console.WriteLine($"🔐 {claimType}: {string.Join(", ", claims.Select(c => c.Value))}");
+                                        Log.Debug("🔐 {ClaimType}: {Claims}", 
+                                            claimType, string.Join(", ", claims.Select(c => c.Value)));
                                     }
                                 }
                                 
                                 // Verificar roles específicos
-                                Console.WriteLine("=== 🎯 ROLES VERIFICATION ===");
-                                Console.WriteLine($"🔐 IsInRole('api-service'): {context.Principal?.IsInRole("api-service")}");
-                                Console.WriteLine($"🔐 IsInRole('admin'): {context.Principal?.IsInRole("admin")}");
-                                Console.WriteLine($"🔐 IsInRole('user'): {context.Principal?.IsInRole("user")}");
+                                Log.Debug("=== 🎯 ROLES VERIFICATION ===");
+                                Log.Debug("🔐 IsInRole('api-service'): {IsApiService}", 
+                                    context.Principal?.IsInRole("api-service"));
+                                Log.Debug("🔐 IsInRole('admin'): {IsAdmin}", 
+                                    context.Principal?.IsInRole("admin"));
                                 
                                 // Transformación adicional para garantizar compatibilidad
                                 TransformRolesForCompatibility(identity);
@@ -151,7 +154,7 @@ public static class PresentationServiceCollectionExtensions
                     // Método 1: Verificación estándar con RoleClaimType configurado
                     if (context.User.IsInRole("api-service") || context.User.IsInRole("admin"))
                     {
-                        Console.WriteLine($"✅ Access granted via IsInRole");
+                        Log.Debug("✅ Access granted via IsInRole");
                         return true;
                     }
 
@@ -163,7 +166,7 @@ public static class PresentationServiceCollectionExtensions
 
                     if (hasRoleClaim)
                     {
-                        Console.WriteLine($"✅ Access granted via direct claim check");
+                        Log.Debug("✅ Access granted via direct claim check");
                         return true;
                     }
 
@@ -181,7 +184,7 @@ public static class PresentationServiceCollectionExtensions
                                     var roleValue = role.GetString();
                                     if (roleValue == "api-service" || roleValue == "admin")
                                     {
-                                        Console.WriteLine($"✅ Access granted via realm_access: {roleValue}");
+                                        Log.Debug("✅ Access granted via realm_access: {Role}", roleValue);
                                         return true;
                                     }
                                 }
@@ -191,14 +194,14 @@ public static class PresentationServiceCollectionExtensions
                     }
 
                     // Debug información
-                    Console.WriteLine("❌ Access denied - Debug info:");
+                    Log.Warning("❌ Access denied for user: {User}", context.User.Identity?.Name);
                     var allRoleClaims = context.User.FindAll(ClaimTypes.Role)
                         .Concat(context.User.FindAll("http://schemas.microsoft.com/ws/2008/06/identity/claims/role"))
                         .Concat(context.User.FindAll("roles"))
                         .Select(c => $"{c.Type}={c.Value}")
                         .Distinct();
                     
-                    Console.WriteLine($"🔐 Available role claims: {string.Join(", ", allRoleClaims)}");
+                    Log.Debug("🔐 Available role claims: {Claims}", string.Join(", ", allRoleClaims));
                     
                     return false;
                 });
@@ -211,12 +214,12 @@ public static class PresentationServiceCollectionExtensions
                     .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
                     .RequireAssertion(context => 
                     {
-                        Console.WriteLine($"🔐 Development mode - Allowing request for: {context.User.Identity?.Name}");
+                        Log.Debug("🔐 Development mode - Allowing request for: {User}", context.User.Identity?.Name);
                         return true;
                     })
                     .Build();
                     
-                Console.WriteLine("🔐 Development mode: Using permissive authorization policy");
+                Log.Information("🔐 Development mode: Using permissive authorization policy");
             }
         });
 
@@ -267,7 +270,7 @@ public static class PresentationServiceCollectionExtensions
             });
         });
 
-        // ✅ CORS ACTUALIZADO
+        // ✅ CORS ACTUALIZADO (corregido typo)
         services.AddCors(options =>
         {
             options.AddPolicy("KeycloakCors", policy =>
@@ -278,7 +281,7 @@ public static class PresentationServiceCollectionExtensions
                         "http://localhost:15003",
                         "http://localhost:18080",
                         "http://localhost:15004",
-                        "http:blazor-fronted:80",
+                        "http://blazor-fronted:80", // ✅ Corregido: http:// en lugar de http:
                         "http://keycloak:8080",
                         "http://api-pedidos:8080",
                         "http://api-pago:8080",
@@ -289,10 +292,14 @@ public static class PresentationServiceCollectionExtensions
             });
         });
 
+        // ✅ HEALTH CHECKS
+        services.AddHealthChecks();
+
+        Log.Information("✅ Servicios de presentación configurados exitosamente");
+
         return services;
     }
 
-  
     private static void TransformRolesForCompatibility(ClaimsIdentity identity)
     {
         // Transformar roles de Keycloak a ClaimTypes.Role estándar
@@ -302,18 +309,18 @@ public static class PresentationServiceCollectionExtensions
             if (!identity.HasClaim(ClaimTypes.Role, roleClaim.Value))
             {
                 identity.AddClaim(new Claim(ClaimTypes.Role, roleClaim.Value));
-                Console.WriteLine($"✅ Transformed role: {roleClaim.Value} -> ClaimTypes.Role");
+                Log.Debug("✅ Transformed role: {Role} -> ClaimTypes.Role", roleClaim.Value);
             }
         }
 
-       
+        // Transformar claims 'roles' (alternativo)
         var rolesClaims = identity.FindAll("roles");
         foreach (var roleClaim in rolesClaims)
         {
             if (!identity.HasClaim(ClaimTypes.Role, roleClaim.Value))
             {
                 identity.AddClaim(new Claim(ClaimTypes.Role, roleClaim.Value));
-                Console.WriteLine($"✅ Transformed role: {roleClaim.Value} from 'roles' claim");
+                Log.Debug("✅ Transformed role: {Role} from 'roles' claim", roleClaim.Value);
             }
         }
     }

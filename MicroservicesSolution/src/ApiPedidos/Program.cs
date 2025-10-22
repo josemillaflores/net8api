@@ -2,24 +2,39 @@ using ApiPedidos.Application;
 using ApiPedidos.Infrastructure;
 using ApiPedidos.Presentation;
 using ApiPedidos.Presentation.Extensions;
-using ApiPedidos.Presentation.Middlewares;
 using Serilog;
 
-var builder = WebApplication.CreateBuilder(args);
+try
+{
+    Log.Information("🚀 Iniciando Api Pedidos...");
 
- 
-builder.ConfigureLogging();
-builder.ConfigureCors();
- 
-builder.Services
-    .AddPresentation(builder.Configuration)
-    .AddInfrastructure(builder.Configuration)
-     .AddApplication();
- 
- 
-var app = builder.Build();
+    var builder = WebApplication.CreateBuilder(args);
 
-app.UseCors("KeycloakCors"); 
-app.ConfigurePipeline();
+     
+    builder.ConfigureLogging();
+    builder.ConfigureCors();
 
-app.Run();
+     
+    builder.Services
+        .AddPresentation(builder.Configuration)
+        .AddInfrastructure(builder.Configuration)
+        .AddApplication();
+
+    var app = builder.Build();
+
+     
+    app.ConfigurePipeline();
+
+    Log.Information("✅ Api Pedidos iniciada correctamente en: {Urls}", 
+        string.Join(", ", app.Urls));
+    
+    app.Run();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "❌ Error crítico iniciando la aplicación");
+}
+finally
+{
+    Log.CloseAndFlush();
+}
