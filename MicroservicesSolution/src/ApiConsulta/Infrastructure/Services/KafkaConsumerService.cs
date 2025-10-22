@@ -49,7 +49,7 @@ namespace ApiConsulta.Infrastructure.Services
 
                             await ProcesarEvento(consumeResult.Message.Value, stoppingToken);
                             
-                            // ✅ COMMIT MANUAL DESPUÉS DE PROCESAR EXITOSAMENTE
+                          
                             _consumer.Commit(consumeResult);
                             _logger.LogDebug("✅ Commit realizado - Offset: {Offset}", consumeResult.Offset);
                         }
