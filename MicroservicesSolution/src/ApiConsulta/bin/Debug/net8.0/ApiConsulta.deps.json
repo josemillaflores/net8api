@@ -13,9 +13,9 @@
           "FluentValidation.AspNetCore": "11.3.1",
           "MassTransit": "8.5.4",
           "MassTransit.RabbitMQ": "8.5.4",
-          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.20",
-          "Microsoft.OpenApi": "1.6.23",
-          "MongoDB.Driver": "3.5.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.6",
+          "Microsoft.OpenApi": "1.6.15",
+          "MongoDB.Driver": "2.25.0",
           "OpenTelemetry": "1.13.1",
           "OpenTelemetry.Api": "1.13.1",
           "OpenTelemetry.Exporter.Jaeger": "1.5.1",
@@ -25,10 +25,29 @@
           "Scrutor": "6.1.0",
           "Serilog.AspNetCore": "8.0.3",
           "Serilog.Extensions.Hosting": "9.0.0",
-          "Swashbuckle.AspNetCore": "8.1.4"
+          "Swashbuckle.AspNetCore": "6.6.2"
         },
         "runtime": {
           "ApiConsulta.dll": {}
+        }
+      },
+      "AWSSDK.Core/3.7.100.14": {
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.100.14"
+          }
+        }
+      },
+      "AWSSDK.SecurityToken/3.7.100.14": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.100.14"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.SecurityToken.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.100.14"
+          }
         }
       },
       "Confluent.Kafka/2.3.0": {
@@ -246,14 +265,14 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.20": {
+      "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.6": {
         "dependencies": {
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "7.1.2"
         },
         "runtime": {
           "lib/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
-            "assemblyVersion": "8.0.20.0",
-            "fileVersion": "8.0.2025.42002"
+            "assemblyVersion": "8.0.6.0",
+            "fileVersion": "8.0.624.26909"
           }
         }
       },
@@ -500,35 +519,76 @@
           }
         }
       },
-      "Microsoft.OpenApi/1.6.23": {
+      "Microsoft.OpenApi/1.6.15": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.OpenApi.dll": {
-            "assemblyVersion": "1.6.23.0",
-            "fileVersion": "1.6.23.0"
+            "assemblyVersion": "1.6.15.0",
+            "fileVersion": "1.6.15.0"
           }
         }
       },
-      "MongoDB.Bson/3.5.0": {
+      "MongoDB.Bson/2.25.0": {
         "runtime": {
-          "lib/net6.0/MongoDB.Bson.dll": {
-            "assemblyVersion": "3.5.0.0",
-            "fileVersion": "3.5.0.0"
+          "lib/netstandard2.1/MongoDB.Bson.dll": {
+            "assemblyVersion": "2.25.0.0",
+            "fileVersion": "2.25.0.0"
           }
         }
       },
-      "MongoDB.Driver/3.5.0": {
+      "MongoDB.Driver/2.25.0": {
         "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "9.0.0",
+          "MongoDB.Bson": "2.25.0",
+          "MongoDB.Driver.Core": "2.25.0",
+          "MongoDB.Libmongocrypt": "1.8.2"
+        },
+        "runtime": {
+          "lib/netstandard2.1/MongoDB.Driver.dll": {
+            "assemblyVersion": "2.25.0.0",
+            "fileVersion": "2.25.0.0"
+          }
+        }
+      },
+      "MongoDB.Driver.Core/2.25.0": {
+        "dependencies": {
+          "AWSSDK.SecurityToken": "3.7.100.14",
           "DnsClient": "1.6.1",
           "Microsoft.Extensions.Logging.Abstractions": "9.0.0",
-          "MongoDB.Bson": "3.5.0",
+          "MongoDB.Bson": "2.25.0",
+          "MongoDB.Libmongocrypt": "1.8.2",
           "SharpCompress": "0.30.1",
           "Snappier": "1.0.0",
           "ZstdSharp.Port": "0.7.3"
         },
         "runtime": {
-          "lib/net6.0/MongoDB.Driver.dll": {
-            "assemblyVersion": "3.5.0.0",
-            "fileVersion": "3.5.0.0"
+          "lib/netstandard2.1/MongoDB.Driver.Core.dll": {
+            "assemblyVersion": "2.25.0.0",
+            "fileVersion": "2.25.0.0"
+          }
+        }
+      },
+      "MongoDB.Libmongocrypt/1.8.2": {
+        "runtime": {
+          "lib/netstandard2.1/MongoDB.Libmongocrypt.dll": {
+            "assemblyVersion": "1.8.2.0",
+            "fileVersion": "1.8.2.0"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux/native/libmongocrypt.so": {
+            "rid": "linux",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx/native/libmongocrypt.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win/native/mongocrypt.dll": {
+            "rid": "win",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -761,40 +821,40 @@
           }
         }
       },
-      "Swashbuckle.AspNetCore/8.1.4": {
+      "Swashbuckle.AspNetCore/6.6.2": {
         "dependencies": {
-          "Swashbuckle.AspNetCore.Swagger": "8.1.4",
-          "Swashbuckle.AspNetCore.SwaggerGen": "8.1.4",
-          "Swashbuckle.AspNetCore.SwaggerUI": "8.1.4"
+          "Swashbuckle.AspNetCore.Swagger": "6.6.2",
+          "Swashbuckle.AspNetCore.SwaggerGen": "6.6.2",
+          "Swashbuckle.AspNetCore.SwaggerUI": "6.6.2"
         }
       },
-      "Swashbuckle.AspNetCore.Swagger/8.1.4": {
+      "Swashbuckle.AspNetCore.Swagger/6.6.2": {
         "dependencies": {
-          "Microsoft.OpenApi": "1.6.23"
+          "Microsoft.OpenApi": "1.6.15"
         },
         "runtime": {
           "lib/net8.0/Swashbuckle.AspNetCore.Swagger.dll": {
-            "assemblyVersion": "8.1.4.0",
-            "fileVersion": "8.1.4.1479"
+            "assemblyVersion": "6.6.2.0",
+            "fileVersion": "6.6.2.401"
           }
         }
       },
-      "Swashbuckle.AspNetCore.SwaggerGen/8.1.4": {
+      "Swashbuckle.AspNetCore.SwaggerGen/6.6.2": {
         "dependencies": {
-          "Swashbuckle.AspNetCore.Swagger": "8.1.4"
+          "Swashbuckle.AspNetCore.Swagger": "6.6.2"
         },
         "runtime": {
           "lib/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {
-            "assemblyVersion": "8.1.4.0",
-            "fileVersion": "8.1.4.1479"
+            "assemblyVersion": "6.6.2.0",
+            "fileVersion": "6.6.2.401"
           }
         }
       },
-      "Swashbuckle.AspNetCore.SwaggerUI/8.1.4": {
+      "Swashbuckle.AspNetCore.SwaggerUI/6.6.2": {
         "runtime": {
           "lib/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
-            "assemblyVersion": "8.1.4.0",
-            "fileVersion": "8.1.4.1479"
+            "assemblyVersion": "6.6.2.0",
+            "fileVersion": "6.6.2.401"
           }
         }
       },
@@ -833,6 +893,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AWSSDK.Core/3.7.100.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gnEgxBlk4PFEfdPE8Lkf4+D16MZFYSaW7/o6Wwe5e035QWUkTJX0Dn4LfTCdV5QSEL/fOFxu+yCAm55eIIBgog==",
+      "path": "awssdk.core/3.7.100.14",
+      "hashPath": "awssdk.core.3.7.100.14.nupkg.sha512"
+    },
+    "AWSSDK.SecurityToken/3.7.100.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dGCVuVo0CFUKWW85W8YENO+aREf8sCBDjvGbnNvxJuNW4Ss+brEU9ltHhq2KfZze2VUNK1/wygbPG1bmbpyXEw==",
+      "path": "awssdk.securitytoken/3.7.100.14",
+      "hashPath": "awssdk.securitytoken.3.7.100.14.nupkg.sha512"
     },
     "Confluent.Kafka/2.3.0": {
       "type": "package",
@@ -897,12 +971,12 @@
       "path": "masstransit.rabbitmq/8.5.4",
       "hashPath": "masstransit.rabbitmq.8.5.4.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.20": {
+    "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ojfy39qaCtNOrXOut4Jreqj5WYSRJMqvQif46KzMtaJiZcByAbZtO+QDM9JQvQAzPtWnzWSCz5DcZJ/82IeOFQ==",
-      "path": "microsoft.aspnetcore.authentication.jwtbearer/8.0.20",
-      "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.8.0.20.nupkg.sha512"
+      "sha512": "sha512-devoUZd8YqikCheBVYpIyvp9psM2Y2ZhOvq1zL2YSjIoq3FUQH8LpLkGak+8oAi/5DGqX8KWyLpZJSUXtOAVCw==",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/8.0.6",
+      "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.8.0.6.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration/9.0.0": {
       "type": "package",
@@ -1051,26 +1125,40 @@
       "path": "microsoft.identitymodel.tokens/7.1.2",
       "hashPath": "microsoft.identitymodel.tokens.7.1.2.nupkg.sha512"
     },
-    "Microsoft.OpenApi/1.6.23": {
+    "Microsoft.OpenApi/1.6.15": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tZ1I0KXnn98CWuV8cpI247A17jaY+ILS9vvF7yhI0uPPEqF4P1d7BWL5Uwtel10w9NucllHB3nTkfYTAcHAh8g==",
-      "path": "microsoft.openapi/1.6.23",
-      "hashPath": "microsoft.openapi.1.6.23.nupkg.sha512"
+      "sha512": "sha512-6w8KcyySsOf5w+ql8K/+2qct2gHkkPRq7i1VvAyvFwpgBFgZVFYK5yUOEFyyTmVT4OTkpRgr1Hy432BHC2tamg==",
+      "path": "microsoft.openapi/1.6.15",
+      "hashPath": "microsoft.openapi.1.6.15.nupkg.sha512"
     },
-    "MongoDB.Bson/3.5.0": {
+    "MongoDB.Bson/2.25.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-JGNK6BanLDEifgkvPLqVFCPus5EDCy416pxf1dxUBRSVd3D9+NB3AvMVX190eXlk5/UXuCxpsQv7jWfNKvppBQ==",
-      "path": "mongodb.bson/3.5.0",
-      "hashPath": "mongodb.bson.3.5.0.nupkg.sha512"
+      "sha512": "sha512-xQx/qtC2nu9oGiyNqAwfiDpUMweLi0nID677cyKykpwmj5AVMrnd//UwmcmuX95178DeY6rf7cjmA613TQXPiA==",
+      "path": "mongodb.bson/2.25.0",
+      "hashPath": "mongodb.bson.2.25.0.nupkg.sha512"
     },
-    "MongoDB.Driver/3.5.0": {
+    "MongoDB.Driver/2.25.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ST90u7psyMkNNOWFgSkexsrB3kPn7Ynl2DlMFj2rJyYuc6SIxjmzu4ufy51yzM+cPVE1SvVcdb5UFobrRw6cMg==",
-      "path": "mongodb.driver/3.5.0",
-      "hashPath": "mongodb.driver.3.5.0.nupkg.sha512"
+      "sha512": "sha512-dMqnZTV6MuvoEI4yFtSvKJdAoN6NeyAEvG8aoxnrLIVd7bR84QxLgpsM1nhK17qkOcIx/IrpMIfrvp5iMnYGBg==",
+      "path": "mongodb.driver/2.25.0",
+      "hashPath": "mongodb.driver.2.25.0.nupkg.sha512"
+    },
+    "MongoDB.Driver.Core/2.25.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oN4nLgO5HQEThTg/zqeoHqaO2+q64DBVb4r7BvhaFb0p0TM9jZKnCKvh1EA8d9E9swIz0CgvMrvL1mPyRCZzag==",
+      "path": "mongodb.driver.core/2.25.0",
+      "hashPath": "mongodb.driver.core.2.25.0.nupkg.sha512"
+    },
+    "MongoDB.Libmongocrypt/1.8.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-z/8JCULSHM1+mzkau0ivIkU9kIn8JEFFSkmYTSaMaWMMHt96JjUtMKuXxeGNGSnHZ5290ZPKIlQfjoWFk2sKog==",
+      "path": "mongodb.libmongocrypt/1.8.2",
+      "hashPath": "mongodb.libmongocrypt.1.8.2.nupkg.sha512"
     },
     "OpenTelemetry/1.13.1": {
       "type": "package",
@@ -1212,33 +1300,33 @@
       "path": "snappier/1.0.0",
       "hashPath": "snappier.1.0.0.nupkg.sha512"
     },
-    "Swashbuckle.AspNetCore/8.1.4": {
+    "Swashbuckle.AspNetCore/6.6.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qYk8VHyvs6wML+KXtjyCgS9Aj18mcm0ZtnJeNCTlj/DYQ7A3pfLIztQgLuZS/LEMYsrTo1lSKR3IIZ5/HzVCWA==",
-      "path": "swashbuckle.aspnetcore/8.1.4",
-      "hashPath": "swashbuckle.aspnetcore.8.1.4.nupkg.sha512"
+      "sha512": "sha512-+NB4UYVYN6AhDSjW0IJAd1AGD8V33gemFNLPaxKTtPkHB+HaKAKf9MGAEUPivEWvqeQfcKIw8lJaHq6LHljRuw==",
+      "path": "swashbuckle.aspnetcore/6.6.2",
+      "hashPath": "swashbuckle.aspnetcore.6.6.2.nupkg.sha512"
     },
-    "Swashbuckle.AspNetCore.Swagger/8.1.4": {
+    "Swashbuckle.AspNetCore.Swagger/6.6.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-w83aYEBJYNa6ZYomziwZWwXhqQPLKhZH0n8MzqqNhF1ElCGBKm71kd7W6pgIr/yu0i6ymQzrZUFSZLdvH1kY5w==",
-      "path": "swashbuckle.aspnetcore.swagger/8.1.4",
-      "hashPath": "swashbuckle.aspnetcore.swagger.8.1.4.nupkg.sha512"
+      "sha512": "sha512-ovgPTSYX83UrQUWiS5vzDcJ8TEX1MAxBgDFMK45rC24MorHEPQlZAHlaXj/yth4Zf6xcktpUgTEBvffRQVwDKA==",
+      "path": "swashbuckle.aspnetcore.swagger/6.6.2",
+      "hashPath": "swashbuckle.aspnetcore.swagger.6.6.2.nupkg.sha512"
     },
-    "Swashbuckle.AspNetCore.SwaggerGen/8.1.4": {
+    "Swashbuckle.AspNetCore.SwaggerGen/6.6.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-aBwO2MF1HHAaWgdBwX8tlSqxycOKTKmCT6pEpb0oSY1pn7mUdmzJvHZA0HxWx9nfmKP0eOGQcLC9ZnN/MuehRQ==",
-      "path": "swashbuckle.aspnetcore.swaggergen/8.1.4",
-      "hashPath": "swashbuckle.aspnetcore.swaggergen.8.1.4.nupkg.sha512"
+      "sha512": "sha512-zv4ikn4AT1VYuOsDCpktLq4QDq08e7Utzbir86M5/ZkRaLXbCPF11E1/vTmOiDzRTl0zTZINQU2qLKwTcHgfrA==",
+      "path": "swashbuckle.aspnetcore.swaggergen/6.6.2",
+      "hashPath": "swashbuckle.aspnetcore.swaggergen.6.6.2.nupkg.sha512"
     },
-    "Swashbuckle.AspNetCore.SwaggerUI/8.1.4": {
+    "Swashbuckle.AspNetCore.SwaggerUI/6.6.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mTn6OwB43ETrN6IgAZd7ojWGhTwBZ98LT3QwbAn6Gg3wJStQV4znU0mWiHaKFlD/+Qhj1uhAUOa52rmd6xmbzg==",
-      "path": "swashbuckle.aspnetcore.swaggerui/8.1.4",
-      "hashPath": "swashbuckle.aspnetcore.swaggerui.8.1.4.nupkg.sha512"
+      "sha512": "sha512-mBBb+/8Hm2Q3Wygag+hu2jj69tZW5psuv0vMRXY07Wy+Rrj40vRP8ZTbKBhs91r45/HXT4aY4z0iSBYx1h6JvA==",
+      "path": "swashbuckle.aspnetcore.swaggerui/6.6.2",
+      "hashPath": "swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512"
     },
     "System.Diagnostics.DiagnosticSource/9.0.0": {
       "type": "package",

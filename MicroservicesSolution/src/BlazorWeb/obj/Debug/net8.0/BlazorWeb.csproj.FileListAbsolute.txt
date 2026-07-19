@@ -2124,9 +2124,6 @@ D:\jose\net8api\MicroservicesSolution\src\BlazorWeb\obj\Debug\net8.0\compressed\
 D:\jose\net8api\MicroservicesSolution\src\BlazorWeb\obj\Debug\net8.0\compressed\dbtohbvvz8-{0}-tptq2av103-tptq2av103.gz
 D:\jose\net8api\MicroservicesSolution\src\BlazorWeb\obj\Debug\net8.0\compressed\mg9278m04p-{0}-lfu7j35m59-lfu7j35m59.gz
 D:\jose\net8api\MicroservicesSolution\src\BlazorWeb\obj\Debug\net8.0\compressed\ecuka275oa-{0}-oyz0vx2fzb-oyz0vx2fzb.gz
-D:\jose\net8api\MicroservicesSolution\src\BlazorWeb\obj\Debug\net8.0\compressed\q6uywdz1gh-{0}-dhzs3ozp6m-dhzs3ozp6m.gz
-D:\jose\net8api\MicroservicesSolution\src\BlazorWeb\obj\Debug\net8.0\compressed\9slgmvyey4-{0}-odl69jkbqg-odl69jkbqg.gz
-D:\jose\net8api\MicroservicesSolution\src\BlazorWeb\obj\Debug\net8.0\compressed\gj9psvzcp1-{0}-i0r3o7ybnw-i0r3o7ybnw.gz
 D:\jose\net8api\MicroservicesSolution\src\BlazorWeb\obj\Debug\net8.0\staticwebassets.build.json
 D:\jose\net8api\MicroservicesSolution\src\BlazorWeb\obj\Debug\net8.0\staticwebassets.build.json.cache
 D:\jose\net8api\MicroservicesSolution\src\BlazorWeb\obj\Debug\net8.0\staticwebassets.development.json
@@ -2137,3 +2134,6 @@ D:\jose\net8api\MicroservicesSolution\src\BlazorWeb\obj\Debug\net8.0\BlazorWeb.d
 D:\jose\net8api\MicroservicesSolution\src\BlazorWeb\obj\Debug\net8.0\refint\BlazorWeb.dll
 D:\jose\net8api\MicroservicesSolution\src\BlazorWeb\obj\Debug\net8.0\BlazorWeb.pdb
 D:\jose\net8api\MicroservicesSolution\src\BlazorWeb\obj\Debug\net8.0\ref\BlazorWeb.dll
+D:\jose\net8api\MicroservicesSolution\src\BlazorWeb\obj\Debug\net8.0\compressed\q6uywdz1gh-{0}-s1vs44z4ik-s1vs44z4ik.gz
+D:\jose\net8api\MicroservicesSolution\src\BlazorWeb\obj\Debug\net8.0\compressed\9slgmvyey4-{0}-93qni3ypsq-93qni3ypsq.gz
+D:\jose\net8api\MicroservicesSolution\src\BlazorWeb\obj\Debug\net8.0\compressed\gj9psvzcp1-{0}-7xg3rxc6o8-7xg3rxc6o8.gz

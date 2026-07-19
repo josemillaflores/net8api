@@ -1,5 +1,5 @@
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
 # Se recomienda ejecutar el contenedor con un usuario no-root por seguridad.
 USER app
 WORKDIR /app
@@ -9,7 +9,7 @@ EXPOSE 8080
 # --------------------
 # ETAPA 2: COMPILACIÓN (Build)
 # Usamos la imagen completa del SDK de .NET 8.0 para compilar el proyecto.
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
 

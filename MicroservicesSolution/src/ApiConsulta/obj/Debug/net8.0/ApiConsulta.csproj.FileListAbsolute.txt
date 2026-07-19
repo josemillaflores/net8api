@@ -114,3 +114,10 @@ D:\jose\net8api\MicroservicesSolution\src\ApiConsulta\obj\Debug\net8.0\refint\Ap
 D:\jose\net8api\MicroservicesSolution\src\ApiConsulta\obj\Debug\net8.0\ApiConsulta.pdb
 D:\jose\net8api\MicroservicesSolution\src\ApiConsulta\obj\Debug\net8.0\ApiConsulta.genruntimeconfig.cache
 D:\jose\net8api\MicroservicesSolution\src\ApiConsulta\obj\Debug\net8.0\ref\ApiConsulta.dll
+D:\jose\net8api\MicroservicesSolution\src\ApiConsulta\bin\Debug\net8.0\AWSSDK.Core.dll
+D:\jose\net8api\MicroservicesSolution\src\ApiConsulta\bin\Debug\net8.0\AWSSDK.SecurityToken.dll
+D:\jose\net8api\MicroservicesSolution\src\ApiConsulta\bin\Debug\net8.0\MongoDB.Driver.Core.dll
+D:\jose\net8api\MicroservicesSolution\src\ApiConsulta\bin\Debug\net8.0\MongoDB.Libmongocrypt.dll
+D:\jose\net8api\MicroservicesSolution\src\ApiConsulta\bin\Debug\net8.0\runtimes\linux\native\libmongocrypt.so
+D:\jose\net8api\MicroservicesSolution\src\ApiConsulta\bin\Debug\net8.0\runtimes\osx\native\libmongocrypt.dylib
+D:\jose\net8api\MicroservicesSolution\src\ApiConsulta\bin\Debug\net8.0\runtimes\win\native\mongocrypt.dll
