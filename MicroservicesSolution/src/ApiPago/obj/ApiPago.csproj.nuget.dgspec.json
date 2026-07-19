@@ -52,19 +52,19 @@
           "dependencies": {
             "AspNetCore.HealthChecks.Kafka": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[8.0.1, )"
             },
             "AspNetCore.HealthChecks.MongoDb": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[8.0.1, )"
             },
             "AspNetCore.HealthChecks.UI": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[8.0.1, )"
             },
             "AspNetCore.HealthChecks.UI.Client": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[8.0.1, )"
             },
             "Confluent.Kafka": {
               "target": "Package",
